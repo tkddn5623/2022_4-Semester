@@ -1,0 +1,5 @@
+﻿  LinkedList.c
+E:\!!Documents 2021\!!Programming projects\2022_3-Semester\_myLibrary\_myLibrary\Data Structures\LinkedList.c(115,35): warning C4028: formal parameter 1 different from declaration
+  _Main.c
+  Generating Code...
+  _myLibrary.vcxproj -> E:\!!Documents 2021\!!Programming projects\2022_3-Semester\_myLibrary\x64\Debug\_myLibrary.exe
