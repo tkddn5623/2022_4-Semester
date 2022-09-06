@@ -1,6 +1,6 @@
 #ifndef ELEMENT_TYPE
-typedef int Element;
 #define ELEMENT_TYPE
+typedef int Element;
 #endif
 
 #ifndef LINKED_LIST_H

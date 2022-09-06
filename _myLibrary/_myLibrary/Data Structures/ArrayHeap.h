@@ -1,6 +1,6 @@
 #ifndef ELEMENT_TYPE
-typedef int Element;
 #define ELEMENT_TYPE
+typedef int Element;
 #endif
 
 #ifndef ARRAY_HEAP_H

@@ -39,6 +39,9 @@
     <ClInclude Include="Data Structures\LinkedList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Data Structures\UnionFind.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="_Main.c">
@@ -60,6 +63,9 @@
       <Filter>Source Files\Algorithms</Filter>
     </ClCompile>
     <ClCompile Include="Data Structures\LinkedList.c">
+      <Filter>Source Files\Data Structures</Filter>
+    </ClCompile>
+    <ClCompile Include="Data Structures\UnionFind.c">
       <Filter>Source Files\Data Structures</Filter>
     </ClCompile>
   </ItemGroup>
