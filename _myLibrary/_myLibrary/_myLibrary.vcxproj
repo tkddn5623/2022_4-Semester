@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Data Structures\AdjacencyList.h" />
     <ClInclude Include="Data Structures\ArrayDeque.h" />
     <ClInclude Include="Data Structures\ArrayQueue.h" />
     <ClInclude Include="Data Structures\ArrayStack.h" />
@@ -146,8 +147,10 @@
     <ClInclude Include="Algorithms\LinearSieve.h" />
     <ClInclude Include="Data Structures\LinkedList.h" />
     <ClInclude Include="Data Structures\UnionFind.h" />
+    <ClInclude Include="Data Structures\Vector.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Data Structures\AdjacencyList.c" />
     <ClCompile Include="Data Structures\ArrayDeque.c" />
     <ClCompile Include="Data Structures\ArrayQueue.c" />
     <ClCompile Include="Data Structures\ArrayStack.c" />
@@ -155,6 +158,7 @@
     <ClCompile Include="Algorithms\LinearSieve.c" />
     <ClCompile Include="Data Structures\LinkedList.c" />
     <ClCompile Include="Data Structures\UnionFind.c" />
+    <ClCompile Include="Data Structures\Vector.c" />
     <ClCompile Include="_Main.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

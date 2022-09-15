@@ -42,6 +42,12 @@
     <ClInclude Include="Data Structures\UnionFind.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Data Structures\AdjacencyList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Data Structures\Vector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="_Main.c">
@@ -66,6 +72,12 @@
       <Filter>Source Files\Data Structures</Filter>
     </ClCompile>
     <ClCompile Include="Data Structures\UnionFind.c">
+      <Filter>Source Files\Data Structures</Filter>
+    </ClCompile>
+    <ClCompile Include="Data Structures\AdjacencyList.c">
+      <Filter>Source Files\Data Structures</Filter>
+    </ClCompile>
+    <ClCompile Include="Data Structures\Vector.c">
       <Filter>Source Files\Data Structures</Filter>
     </ClCompile>
   </ItemGroup>
