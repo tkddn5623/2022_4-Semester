@@ -6,7 +6,9 @@ typedef struct _GNode {
 } GNode;
 typedef struct {
 	int size;
-	GNode** heads;
 	GNode** tails;
 } Graph;
+Graph* GR_newGraph(const int size);
+void GR_deleteGraph(Graph* pgraph);
+void GR_addEdge(const Graph* pgraph, const int index1, const int index2);
 #endif

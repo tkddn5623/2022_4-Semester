@@ -1,2 +1,5 @@
 ﻿  exercise.c
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(9,12): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'char *'
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(9,12): warning C4313: 'printf': '%d' in format string conflicts with argument 1 of type 'char *'
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(6,10): warning C4101: 'args': unreferenced local variable
   _exercise.vcxproj -> E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\x64\Debug\_exercise.exe
