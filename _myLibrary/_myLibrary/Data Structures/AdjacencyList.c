@@ -49,9 +49,10 @@ void GR_addEdge(const Graph* pgraph, const int index1, const int index2) {
 	pgraph->tails[index1]->next = newNode2;
 	pgraph->tails[index1] = newNode2;
 }
-/*int GR_BFS(Graph* pgraph, int* visited, const int startIdx) {
+/*int GR_BFS(Graph* pgraph, const int startIdx) {
 	const int size = pgraph->size;
 	int count = 0;
+	int* visited = calloc(size, sizeof(int));
 	ArrayQueue* queue = AQ_newQueue(size);
 	if (!visited[startIdx]) {
 		AQ_push(queue, startIdx);
@@ -74,8 +75,16 @@ void GR_addEdge(const Graph* pgraph, const int index1, const int index2) {
 	}
 	AQ_deleteQueue(queue);
 	return count;
-}*/
-
+}
+void GR_addEdge(const Graph* pgraph, const int index_from, const int index_to) {
+	GNode* newNode;
+	newNode = malloc(sizeof(GNode));
+	newNode->id = index_to;
+	newNode->next = pgraph->tails[index_from]->next;
+	pgraph->tails[index_from]->next = newNode;
+	pgraph->tails[index_from] = newNode;
+}
+*/
 
 /*
 * 2022.9.21 Wed
