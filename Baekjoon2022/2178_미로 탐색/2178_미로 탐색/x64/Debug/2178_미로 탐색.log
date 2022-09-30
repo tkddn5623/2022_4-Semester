@@ -1,5 +1,0 @@
-﻿  bj2178.c
-E:\!!Documents 2021\!!Programming projects\2022_4-Semester\Baekjoon2022\2178_미로 탐색\2178_미로 탐색\bj2178.c(135,2): error C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-E:\!!Documents 2021\!!Programming projects\2022_4-Semester\Baekjoon2022\2178_미로 탐색\2178_미로 탐색\bj2178.c(137,2): error C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-E:\!!Documents 2021\!!Programming projects\2022_4-Semester\Baekjoon2022\2178_미로 탐색\2178_미로 탐색\bj2178.c(155,3): error C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-E:\!!Documents 2021\!!Programming projects\2022_4-Semester\Baekjoon2022\2178_미로 탐색\2178_미로 탐색\bj2178.c(176,2): error C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.

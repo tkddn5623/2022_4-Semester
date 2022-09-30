@@ -9,6 +9,7 @@ let menu = {
     title: "My menu"
 }
 
+
 multiplyNumeric(menu)
 for(let x in menu) {
     console.log(menu[x])
