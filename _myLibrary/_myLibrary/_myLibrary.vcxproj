@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Algorithms\MergeSort.h" />
     <ClInclude Include="Data Structures\AdjacencyList.h" />
     <ClInclude Include="Data Structures\ArrayDeque.h" />
     <ClInclude Include="Data Structures\ArrayQueue.h" />
@@ -150,6 +151,7 @@
     <ClInclude Include="Data Structures\Vector.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Algorithms\MergeSort.c" />
     <ClCompile Include="Data Structures\AdjacencyList.c" />
     <ClCompile Include="Data Structures\ArrayDeque.c" />
     <ClCompile Include="Data Structures\ArrayQueue.c" />

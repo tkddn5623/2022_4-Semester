@@ -1,0 +1,3 @@
+search.naver.com##DIV[class="ad_section section _pl_section bg_type_v2"]
+@@*$document,domain=~op.gg|~tistory.com|~acmicpc.net|~solved.ac|~namu.wiki|~dcinside.com|~github.io|~civilopedia.net|~search.naver.com|~dict.naver.com
+www.naver.com##DIV[id="NM_TOP_BANNER"][class="_1hiMWemA"]

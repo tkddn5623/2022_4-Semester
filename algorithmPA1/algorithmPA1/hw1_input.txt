@@ -1,0 +1,7 @@
+3
+$
+P_Id : LastName*: FirstName : Address : City
+$
+2: Svendson : Tove : Borgvn23 : Sandnes
+3: Pettersen : Kari : Storgt20 : Stavanger
+1: Hansen : Ola : Timoteivn10 : Sandnes

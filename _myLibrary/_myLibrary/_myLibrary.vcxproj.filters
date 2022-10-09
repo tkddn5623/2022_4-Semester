@@ -48,6 +48,9 @@
     <ClInclude Include="Data Structures\Vector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Algorithms\MergeSort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="_Main.c">
@@ -79,6 +82,9 @@
     </ClCompile>
     <ClCompile Include="Data Structures\Vector.c">
       <Filter>Source Files\Data Structures</Filter>
+    </ClCompile>
+    <ClCompile Include="Algorithms\MergeSort.c">
+      <Filter>Source Files\Algorithms</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
