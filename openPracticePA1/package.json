@@ -1,0 +1,14 @@
+{
+  "name": "openpa1_jsw",
+  "version": "1.0.0",
+  "description": "This is an assignment.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "skku"
+  ],
+  "author": "2021313504",
+  "license": "MIT"
+}
