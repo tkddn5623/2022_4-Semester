@@ -3,72 +3,66 @@
 #include <sys/wait.h>
 #include <fcntl.h>
 #include <string.h>
-#include <stdio.h>
-#define BUFSIZE (30000)
-void runShell(char** args1, int argsSize) {
+void runShell(char** args1) {
     int mode = 0;
-    int fd;
-    int fd_pipe[2];
-    char **args2;
     char path[1000] = "/bin/";
-    pipe(fd_pipe);
-    for (int i = 0; args1[i] != NULL; i++)
-    {
-        if(!strcmp(args1[i], "<")) {
-            mode = 1;
+    int fd = -1;
+    int pipes[2] = { -1, -1 };
+    char** args2;
+    strcat(path, args1[0]);
+    for (int i = 0; args1[i] != NULL; i++) {
+        const char ch = args1[i][0];
+        if (ch == '<' || ch == '>' || ch == '|') {
             args2 = &args1[i] + 1;
-            fd = open(args2 + 1, O_RDONLY);
             args1[i] = NULL;
-            break;
-        }
-        else if (!strcmp(args1[i], ">")) {
-            mode = 2;
-            args2 = &args1[i] + 1;
-            fd = open(args2 + 1, O_WRONLY | O_CREAT | O_TRUNC, 755);
-            args1[i] = NULL;
-            break;
-        }
-        else if (!strcmp(args1[i], "|")) {
-            mode = 3;
-            args2 = &args1[i] + 1;
-            fd = open(args2 + 1, O_RDWR | O_CREAT | O_TRUNC, 755);
+            switch (ch) {
+            case '<': mode = 1; break;
+            case '>': mode = 2; break;
+            case '|': mode = 3; break;
+            }
             break;
         }
     }
-    strcat(path, args1[0]);
-
-    
-    if (fork() == 0)
-    {
+    if (fork() == 0) {
         switch (mode) {
+        case 0:
+            execv(path, args1);
+            break;
         case 1:
-            close(fd_pipe[1]);
-            dup2(fd, fd_pipe[0]);
+            if ((fd = open(args2[0], O_RDONLY)) < 0) _exit(1);
+            dup2(fd, STDIN_FILENO);
+            execv(path, args1);
             break;
         case 2:
-            close(fd_pipe[0]);
-            dup2(fd, fd_pipe[1]);
+            if ((fd = open(args2[0], O_WRONLY | O_CREAT | O_TRUNC, 755)) < 0) _exit(1);
+            dup2(fd, STDOUT_FILENO);
+            execv(path, args1);
+            break;
+        case 3:
+            pipe(pipes);
+            if (fork() == 0) {
+                close(pipes[1]);
+                dup2(pipes[0], STDIN_FILENO);
+                strcpy(path, "/bin/");
+                strcat(path, args2[0]);
+                execv(path, args2);
+                _exit(0);
+            }
+            close(pipes[0]);
+            dup2(pipes[1], STDOUT_FILENO);
+            execv(path, args1);
+            wait(NULL);
             break;
         }
-        execv(path, args1);
-        close(fd);
         _exit(0);
     }
     else {
-        switch (mode) {
-        case 1:
-            close(fd_pipe[0]);
-            break;
-        case 2:
-            close(fd_pipe[1]);
-            break;
-        }
         wait(NULL);
     }
 }
 int main() {
-    char buffer[BUFSIZE];
-    char* args[BUFSIZE / 2];
+    char buffer[30000];
+    char* args[15000];
     int argsSize;
     while (1) {
         read(STDIN_FILENO, buffer, sizeof(buffer));
@@ -78,9 +72,6 @@ int main() {
         while ((args[++argsSize] = strtok(NULL, " ")) != NULL);
 
         if (!strcmp(args[0], "quit")) break;
-        else {
-            if (fork() == 0) runShell(args, argsSize);
-            else wait(NULL);
-        }
+        else runShell(args);
     }
 }
