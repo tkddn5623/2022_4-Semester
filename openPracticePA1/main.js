@@ -34,6 +34,15 @@ for (let i = 2; i < process.argv.length; i++) {
 const arr_const = arr.map((it) => { return it })
 arr.sort((a, b) => { return a - b })
 switch (command) {
+    case 'sum':
+        console.log(arr.reduce((prev, curr) => prev + curr, 0))
+        break;
+    case 'avg':
+        console.log(arr.reduce((prev, curr) => prev + curr, 0) / arr.length)
+        break;
+    case 'max':
+        console.log(arr[arr.length - 1])
+        break;
     case 'med':
         console.log(Med(arr))
         break
