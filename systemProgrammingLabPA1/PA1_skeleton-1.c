@@ -11,7 +11,7 @@
 int ls(char *dir_path, char *option);
 int head(char *file_path, char *line);
 int tail(char *file_path, char *line);
-int mv(char *file_path1, char* file_path2)
+int mv(char* file_path1, char* file_path2);
 int mk_dir(char *dir_path);
 int rm_dir(char *dir_path);
 
