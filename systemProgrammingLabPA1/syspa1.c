@@ -220,7 +220,9 @@ int tail(char* file_path, char* line_arg) {
     return 0;
 }
 int mv(char* file_path1, char* file_path2) {
+    int fd1 = -1, fd2 = -1;
     char file_destpath[MAX_PATH];
+    char buffer[MAX_BUF] = { 0 };
     DIR* dir = opendir(file_path2);
     strcpy(file_destpath, file_path2);
     if (dir != NULL) {
@@ -228,7 +230,17 @@ int mv(char* file_path1, char* file_path2) {
         strcat(file_destpath, file_path1);
         closedir(dir);
     }
-    return rename(file_path1, file_destpath);
+    if ((fd1 = open(file_path1, O_RDONLY)) < 0) return -1;
+    if ((fd2 = open(file_path2, O_WRONLY | O_CREAT | O_TRUNC, 755)) < 0) {
+        close(fd1);
+        return -1;
+    }
+    while ((read(fd1, buffer, sizeof(buffer))) > 0) {
+        write(fd2, buffer, strlen(buffer));
+    }
+    close(fd1);
+    close(fd2);
+    return unlink(file_path1);
 }
 int mk_dir(char* dir_path) {
     return mkdir(dir_path, 755);
