@@ -239,6 +239,7 @@ int mv(char* file_path1, char* file_path2) {
     while ((readSize = read(fd1, buffer, sizeof(buffer))) > 0) {
         write(fd2, buffer, readSize);
     }
+    
     close(fd1);
     close(fd2);
     return unlink(file_path1);
