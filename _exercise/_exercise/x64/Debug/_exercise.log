@@ -1,5 +1,2 @@
 ﻿  exercise.c
-E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(11,9): warning C4101: 'argsSize': unreferenced local variable
-E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(10,11): warning C4101: 'args': unreferenced local variable
-E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(9,10): warning C4101: 'buffer': unreferenced local variable
   _exercise.vcxproj -> E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\x64\Debug\_exercise.exe

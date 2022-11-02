@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32414.318
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "algorithmPA2", "algorithmPA2\algorithmPA2.vcxproj", "{3AEDF2EC-B426-4569-AAA0-3007C2CB2E52}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3AEDF2EC-B426-4569-AAA0-3007C2CB2E52}.Debug|x64.ActiveCfg = Debug|x64
+		{3AEDF2EC-B426-4569-AAA0-3007C2CB2E52}.Debug|x64.Build.0 = Debug|x64
+		{3AEDF2EC-B426-4569-AAA0-3007C2CB2E52}.Debug|x86.ActiveCfg = Debug|Win32
+		{3AEDF2EC-B426-4569-AAA0-3007C2CB2E52}.Debug|x86.Build.0 = Debug|Win32
+		{3AEDF2EC-B426-4569-AAA0-3007C2CB2E52}.Release|x64.ActiveCfg = Release|x64
+		{3AEDF2EC-B426-4569-AAA0-3007C2CB2E52}.Release|x64.Build.0 = Release|x64
+		{3AEDF2EC-B426-4569-AAA0-3007C2CB2E52}.Release|x86.ActiveCfg = Release|Win32
+		{3AEDF2EC-B426-4569-AAA0-3007C2CB2E52}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CCCE1639-2AA8-4F6A-9D7D-1DB61FEC527F}
+	EndGlobalSection
+EndGlobal
