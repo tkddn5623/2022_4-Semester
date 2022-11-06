@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-O2 -W -Wall -Wno-unused-result -std=c99
+CFLAGS=-O2 -Wextra -Wall -Wno-unused-result -std=c99
 TARGET=sys9.out
 OBJS=sys9.o
 

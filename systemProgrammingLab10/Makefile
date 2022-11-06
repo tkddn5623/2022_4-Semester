@@ -1,14 +1,21 @@
 CC=gcc
-CFLAGS=-O2 -W -Wall -Wno-unused-result -std=c99
-TARGET=sys10.out
-OBJS=sys10.o
+CFLAGS=-O2 -Wextra -Wall -Wno-unused-result -std=c99
+TARGET=server client
+OBJS1=sys10_server.o
+OBJS2=sys10_client.o
 
 all: $(TARGET)
 
-sys10.out: $(OBJS)
+server: $(OBJS1)
 	$(CC) $(CFLAGS) -o $@ $^
 
-sys10.o: sys10.c
+client: $(OBJS2)
+	$(CC) $(CFLAGS) -o $@ $^
+
+sys10_server.o: sys10_server.c
+	$(CC) $(CFLAGS) -c -o $@ $^
+
+sys10_client.o: sys10_client.c
 	$(CC) $(CFLAGS) -c -o $@ $^
 	
 clean:
