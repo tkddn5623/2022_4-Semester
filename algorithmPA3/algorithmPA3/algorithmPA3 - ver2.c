@@ -106,6 +106,7 @@ void writefo1(FILE* fp, char codes[][260], BTree* ptree, int const root, const c
 	}
 }
 int readTree(FILE* fi, FILE* fo, BTree tree[], char codes[][260], const int tree_root) {
+	int tree_idx = 0;
 	char tree_text[1024] = { 0 };
 	int tree_text_idx = 0;
 	int treepointer = tree_root;
@@ -180,7 +181,7 @@ int makeTree(FILE* fi, FILE* fo, BTree tree[], char codes[][260]) {
 	}
 	else if (AH_size(&heap) > 1) {
 		while (AH_size(&heap) > 1) {
-			BTree t1, t2;
+			BTree t1, t2, temp;
 			t1 = AH_pop(&heap);
 			t2 = AH_pop(&heap);
 

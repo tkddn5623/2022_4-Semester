@@ -1,6 +1,2 @@
 ﻿  algorithmPA3.c
-E:\!!Documents 2021\!!Programming projects\2022_4-Semester\algorithmPA3\algorithmPA3\algorithmPA3.c(124,7): warning C4101: 'ch': unreferenced local variable
-E:\!!Documents 2021\!!Programming projects\2022_4-Semester\algorithmPA3\algorithmPA3\algorithmPA3.c(133,7): warning C4101: 'ch': unreferenced local variable
-E:\!!Documents 2021\!!Programming projects\2022_4-Semester\algorithmPA3\algorithmPA3\algorithmPA3.c(178,18): warning C4101: 'temp': unreferenced local variable
-E:\!!Documents 2021\!!Programming projects\2022_4-Semester\algorithmPA3\algorithmPA3\algorithmPA3.c(137): warning C4716: 'readTree': must return a value
   algorithmPA3.vcxproj -> E:\!!Documents 2021\!!Programming projects\2022_4-Semester\algorithmPA3\x64\Debug\algorithmPA3.exe
