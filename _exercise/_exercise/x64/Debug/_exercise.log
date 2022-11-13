@@ -1,7 +1,2 @@
 ﻿  exercise.c
-E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(48,24): warning C4267: 'initializing': conversion from 'size_t' to 'const int', possible loss of data
-E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(67,25): warning C4267: 'initializing': conversion from 'size_t' to 'const int', possible loss of data
-E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(68,25): warning C4267: 'initializing': conversion from 'size_t' to 'const int', possible loss of data
-E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(175,26): warning C4048: different array subscripts: 'int (*)[1002]' and 'int [1003][1003]'
-E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(45): warning C4716: '_CLEAR': must return a value
   _exercise.vcxproj -> E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\x64\Debug\_exercise.exe
