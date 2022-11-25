@@ -1,92 +1,70 @@
 #include <stdio.h>
 #include <stdlib.h>
-typedef long long Element;
+#define _INFINITE (1000000000)
 typedef struct {
-	Element item;
-	int priority;
-} HNode;
+	int id;
+	int weight;
+} Edge;
+typedef struct _GNode {
+	Edge edge;
+	struct _GNode* next;
+} GNode;
 typedef struct {
-	HNode* nodes;
 	int size;
-} ArrayHeap;
-ArrayHeap * AH_newHeap(const int max) {
-	ArrayHeap* pheap;
-	if ((pheap = malloc(sizeof(ArrayHeap))) == NULL) exit(1);
-	if ((pheap->nodes = calloc(max + 1, sizeof(HNode))) == NULL) exit(1);
-	pheap->size = 0;
-	return pheap;
-}
-void AH_deleteHeap(ArrayHeap* pheap) {
-	if (pheap == NULL || pheap->nodes == NULL) exit(1);
-	free(pheap->nodes);
-	free(pheap);
-}
-void AH_flush(ArrayHeap* pheap) {
-	pheap->size = 0;
-}
-int AH_size(const ArrayHeap* pheap) {
-	return pheap->size;
-}
-void AH_push(ArrayHeap* pheap, const Element item, const int priority) {
-	HNode newNode;
-	int index = pheap->size + 1;
-	while (index > 1) {
-		int parentIndex = index / 2;
-		if (priority < pheap->nodes[parentIndex].priority) {
-			pheap->nodes[index] = pheap->nodes[parentIndex];
-			index = parentIndex;
-		}
-		else break;
+	GNode** tails;
+} Graph;
+Graph* GR_newGraph(const int size) {
+	Graph* pgraph;
+	if ((pgraph = malloc(sizeof(Graph))) == NULL) exit(1);
+	if ((pgraph->tails = calloc(size, sizeof(GNode*))) == NULL) exit(1);
+	pgraph->size = size;
+	for (int i = 0; i < size; i++) {
+		pgraph->tails[i] = malloc(sizeof(GNode));
+		pgraph->tails[i]->next = pgraph->tails[i];
 	}
-	newNode.item = item;
-	newNode.priority = priority;
-	pheap->nodes[index] = newNode;
-	pheap->size++;
+	return pgraph;
 }
-Element AH_pop(ArrayHeap* pheap) {
-	const int size = pheap->size;
-	const Element topitem = pheap->nodes[1].item;
-	const HNode last = pheap->nodes[size];
-	int left, pickedChild, parentIndex = 1;
-	while ((left = parentIndex * 2) <= size) {
-		if (left == size) pickedChild = left;
-		else if (pheap->nodes[left].priority < pheap->nodes[left + 1].priority) pickedChild = left;
-		else pickedChild = left + 1;
+void GR_deleteGraph(Graph* pgraph) {
+	const int size = pgraph->size;
+	for (int i = 0; i < size; i++) {
+		GNode* _tail = pgraph->tails[i];
+		GNode* cur = _tail;
+		do {
+			GNode* temp = cur;
+			cur = cur->next;
+			free(temp);
+		} while (cur != _tail);
+	}
+	free(pgraph->tails);
+	free(pgraph);
+}
+void GR_addEdge(const Graph* pgraph, const int index_from, const Edge _edge) {
+	GNode* newNode;
+	newNode = malloc(sizeof(GNode));
+	newNode->edge = _edge;
+	newNode->next = pgraph->tails[index_from]->next;
+	pgraph->tails[index_from]->next = newNode;
+	pgraph->tails[index_from] = newNode;
+}
+int solveBellmanFord(Graph* pgraph, const int vtxSize, const int edgeSize, const int vtxStart) {
 
-		if (last.priority > pheap->nodes[pickedChild].priority) {
-			pheap->nodes[parentIndex] = pheap->nodes[pickedChild];
-			parentIndex = pickedChild;
-		}
-		else break;
-	}
-	pheap->nodes[parentIndex] = last;
-	pheap->size--;
-	return topitem;
-}
-long long getAnswer(ArrayHeap* heap) {
-	long long a, sum = 0;
-	while (AH_size(heap) > 1) {
-		a = AH_pop(heap);
-		a += AH_pop(heap);
-		sum += a;
-		AH_push(heap, a, a);
-	}
-	return sum;
 }
 int main() {
-	{
-		freopen("i.txt", "r", stdin);
+	int* distances;
+	int V, E;
+	Graph* graph;
+	scanf("%d%d", &V, &E);
+	graph = GR_newGraph(V + 1);
+	for (int i = 0; i < E; i++) {
+		int from;
+		Edge edge;
+		scanf("%d%d%d", &from, &edge.id, &edge.weight);
+		GR_addEdge(graph, from, edge);
 	}
-	int T, K, temp;
-	ArrayHeap* heap = AH_newHeap(1000000);
-	scanf("%d", &T);
-	for (int t = 0; t < T; t++) {
-		scanf("%d", &K);
-		AH_flush(heap);
-		for (int i = 0; i < K; i++) {
-			scanf("%d", &temp);
-			AH_push(heap, temp, temp);
-		}
-		printf("%lld\n", getAnswer(heap));
+	distances = solveBellmanFord(graph, V, E, 1);
+	for (int i = 1; i <= V; i++) {
+		if (distances[i] == _INFINITE) printf("INF\n");
+		else printf("%d\n", distances[i]);
 	}
+	GR_deleteGraph(graph);
 }
