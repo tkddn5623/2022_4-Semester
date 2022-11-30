@@ -1,0 +1,88 @@
+Please Wait! It takes less than 20 seconds.
+Inclusive simulation complete.
+Exclusive simulation complete.
+Simulation Complete.
+
+L1-D Miss Ratio (block size = 16B)
+LRU/16     1024     2048     4096     8192     16384     
+Direct    3.03%    1.90%    1.68%    1.58%    1.43% 
+2-way     2.26%    1.65%    1.45%    1.41%    1.39% 
+4-way     1.90%    1.56%    1.42%    1.38%    1.38% 
+8-way     1.83%    1.54%    1.41%    1.38%    1.38% 
+
+L1-D Miss Ratio (block size = 64B)
+LRU/64     1024     2048     4096     8192     16384     
+Direct    0.87%    0.68%    0.51%    0.47%    0.47% 
+2-way     0.56%    0.51%    0.47%    0.47%    0.47% 
+4-way     0.52%    0.47%    0.47%    0.47%    0.47% 
+8-way     0.52%    0.47%    0.47%    0.47%    0.47% 
+
+L1-I Miss Ratio (block size = 16B)
+LRU/16     1024     2048     4096     8192     16384     
+Direct    4.52%    2.68%    1.95%    1.63%    1.40% 
+2-way     3.34%    2.00%    1.56%    1.35%    1.27% 
+4-way     2.68%    1.70%    1.48%    1.33%    1.24% 
+8-way     2.49%    1.60%    1.46%    1.32%    1.24% 
+
+L1-I Miss Ratio (block size = 64B)
+LRU/64     1024     2048     4096     8192     16384     
+Direct    0.77%    0.60%    0.47%    0.40%    0.39% 
+2-way     0.58%    0.47%    0.42%    0.40%    0.39% 
+4-way     0.52%    0.46%    0.40%    0.39%    0.39% 
+8-way     0.50%    0.46%    0.40%    0.39%    0.39% 
+
+L2 Inclusive Miss Ratio (block size = 16B)
+LRU/16     1024     2048     4096     8192     16384     
+Direct   30.26%   50.52%   66.96%   78.14%   90.03% 
+2-way    40.83%   65.68%   82.27%   92.75%   97.69% 
+4-way    50.49%   75.82%   86.28%   94.58%   99.69% 
+8-way    54.14%   79.79%   87.26%   94.86%  100.00% 
+
+L2 Inclusive Miss Ratio (block size = 64B)
+LRU/64     1024     2048     4096     8192     16384     
+Direct   51.51%   66.39%   85.17%   98.25%  100.00% 
+2-way    71.61%   85.79%   95.60%   99.39%  100.00% 
+4-way    78.89%   88.91%   98.44%   99.95%  100.00% 
+8-way    81.63%   88.43%   99.30%  100.00%  100.00% 
+
+L2 Exclusive Miss Ratio (block size = 16B)
+LRU/16     1024     2048     4096     8192     16384     
+Direct   29.98%   49.77%   65.89%   76.90%   89.09% 
+2-way    40.41%   64.65%   80.88%   91.40%   97.08% 
+4-way    49.96%   74.52%   84.87%   93.24%   99.40% 
+8-way    53.56%   78.39%   85.80%   93.72%   99.93% 
+
+L2 Exclusive Miss Ratio (block size = 64B)
+LRU/64     1024     2048     4096     8192     16384     
+Direct   51.51%   66.39%   85.17%   98.25%  100.00% 
+2-way    71.61%   85.79%   95.60%   99.39%  100.00% 
+4-way    78.89%   88.91%   98.44%   99.95%  100.00% 
+8-way    81.63%   88.43%   99.30%  100.00%  100.00% 
+
+Number of Memory Block Writes (Inclusive) (block size = 16B)
+LRU/16     1024     2048     4096     8192     16384     
+Direct       96       95      104       93      105 
+2-way        91      110      123      117      103 
+4-way        90      114      116      109       99 
+8-way        97      115      117      105       97 
+
+Number of Memory Block Writes (Inclusive) (block size = 64B)
+LRU/64     1024     2048     4096     8192     16384     
+Direct        0        0        0        0        0 
+2-way         0        0        0        0        0 
+4-way         0        0        0        0        0 
+8-way         0        0        0        0        0 
+
+Number of Memory Block Writes (Exclusive) (block size = 16B)
+LRU/16     1024     2048     4096     8192     16384     
+Direct       45        9        2        0        0 
+2-way        36       12        1        0        0 
+4-way        39        5        0        0        0 
+8-way        32        6        0        0        0 
+
+Number of Memory Block Writes (Exclusive) (block size = 64B)
+LRU/64     1024     2048     4096     8192     16384     
+Direct        0        0        0        0        0 
+2-way         0        0        0        0        0 
+4-way         0        0        0        0        0 
+8-way         0        0        0        0        0 
