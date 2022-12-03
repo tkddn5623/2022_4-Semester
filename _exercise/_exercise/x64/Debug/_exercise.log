@@ -1,4 +1,2 @@
 ﻿  exercise.c
-E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(182,13): warning C4101: 'LRU_set_index_L1': unreferenced local variable
-E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(182,31): warning C4101: 'LRU_set_index_L2': unreferenced local variable
   _exercise.vcxproj -> E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\x64\Debug\_exercise.exe
