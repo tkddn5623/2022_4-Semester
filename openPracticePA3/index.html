@@ -36,8 +36,6 @@
             <div class="flex-grow-1 bg-light rounded-2 p-2 me-1 w-50">
                 <h3>Todos</h3>
                 <div id="todo-list">
-                    <div class="task bg-light p-1 rounded-2 ps-2 d-flex align-items-center">
-                    </div>
                 </div>
             </div>
             <div class="flex-grow-1 bg-light rounded-2 p-2 w-50">
@@ -66,28 +64,103 @@
 			tasks = JSON.parse(lastTasks);
 			tasks.forEach(addToList);
 		}
-
 		function saveTasks() {
 			localStorage.setItem("tasks", JSON.stringify(tasks));
 		}
-
+		function listflush() {
+			let list1 = document.getElementById("todo-list");
+			let list2 = document.getElementById("done-list");
+			while(list1.firstChild) {
+				list1.removeChild(list1.firstChild);
+			}
+			while (list2.firstChild) {
+				list2.removeChild(list2.firstChild);
+			}
+		}
 		function addToList(task) {
 			let div = document.createElement("div");
 			div.className = "task bg-light p-1 rounded-2 ps-2 d-flex align-items-center";
-
 			let span = document.createElement("span");
 			span.className = "me-auto";
 			span.textContent = task.text;
 			div.appendChild(span);
-
 			if (task.type === Type.Todo) {
+				let buttonUp = document.createElement("button");
+				buttonUp.className = "btn btn-sm btn-primary me-1";
+				buttonUp.innerHTML = '<i class="bi bi-arrow-up"></i>';
+				div.appendChild(buttonUp);
+
+				let buttonDown = document.createElement("button");
+				buttonDown.className = "btn btn-sm btn-primary me-1";
+				buttonDown.innerHTML = '<i class="bi bi-arrow-down"></i>';
+				div.appendChild(buttonDown);
+
 				let buttonDone = document.createElement("button");
 				buttonDone.className = "btn btn-sm btn-success me-1";
 				buttonDone.innerHTML = '<i class="bi bi-check"></i>';
 				div.appendChild(buttonDone);
 
+				buttonUp.addEventListener("click", () => {
+					if(tasks.length >= 2) {
+						let last = -1;
+						for (let i = 0; i < tasks.length; i++) {
+							if (tasks[i] !== task && tasks[i].type === Type.Todo) {
+								last = i;
+							}
+							if (tasks[i] === task) {
+								break;
+							}
+						}
+						if (last == -1){
+							return;
+						}
+						let temp_type, temp_text;
+						temp_type = tasks[last].type;
+						temp_text = tasks[last].text;
+						tasks[last].type = task.type;
+						tasks[last].text = task.text;
+						task.type = temp_type;
+						task.text = temp_text;
+						listflush();
+						tasks.forEach(addToList);
+						saveTasks();
+					}
+
+				});
+				buttonDown.addEventListener("click", () => {
+					if (tasks.length >= 2) {
+						let last = -1;
+						for (let i = tasks.length - 1; i >= 0; i--) {
+							if (tasks[i] !== task && tasks[i].type === Type.Todo) {
+								last = i;
+							}
+							if (tasks[i] === task) {
+								break;
+							}
+						}
+						if (last == -1) {
+							return;
+						}
+						let temp_type, temp_text;
+						temp_type = tasks[last].type;
+						temp_text = tasks[last].text;
+						tasks[last].type = task.type;
+						tasks[last].text = task.text;
+						task.type = temp_type;
+						task.text = temp_text;
+						listflush();
+						tasks.forEach(addToList);
+						saveTasks();
+					}
+
+				});
 				buttonDone.addEventListener("click", () => {
-					/* TODO */
+					div.remove();
+					tasks = tasks.filter(t => t !== task);
+					task.type = Type.Done;
+					tasks.push(task);
+					addToList(task);
+					saveTasks();
 				});
 			}
 
@@ -132,6 +205,21 @@
 			addToList(task);
 
 			// 5. Clear #task-input.
+			input.value = "";
+		});
+		let textlabel = document.getElementById("task-input");
+		textlabel.addEventListener("keyup", e =>{
+			if(e.keyCode !== 13) return;
+			let input = document.querySelector("#task-input");
+			let text = input.value;
+			if (!text.length) return;
+			let task = {
+				text: text,
+				type: Type.Todo
+			};
+			tasks.push(task);
+			saveTasks();
+			addToList(task);
 			input.value = "";
 		});
     </script>
