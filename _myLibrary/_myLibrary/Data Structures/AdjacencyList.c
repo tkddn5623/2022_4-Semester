@@ -53,7 +53,7 @@ void GR_addEdge(const Graph* pgraph, const int index1, const int index2) {
 	const int size = pgraph->size;
 	int count = 0;
 	int* visited = calloc(size, sizeof(int));
-	ArrayQueue* queue = AQ_newQueue(size);
+	ArrayQueue* queue = AQ_newQueue(size); 
 	if (!visited[startIdx]) {
 		AQ_push(queue, startIdx);
 		visited[startIdx] = 1;
@@ -67,12 +67,13 @@ void GR_addEdge(const Graph* pgraph, const int index1, const int index2) {
 			if (!visited[cur->id]) {
 				AQ_push(queue, cur->id);
 				visited[cur->id] = 1;
-				praph->tails[cur->id]->next->id = vtx; //If it is tree, this stores the 'parent' index.
+				pgraph->tails[cur->id]->next->id = vtx; //If it is tree, this stores the 'parent' index.
 				count++;
 			}
 			cur = cur->next;
 		}
 	}
+	free(visited);
 	AQ_deleteQueue(queue);
 	return count;
 }

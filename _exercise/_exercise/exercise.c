@@ -1,62 +1,164 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#define NOFILE
-typedef enum _Day { Mon = 0, Tue, Wed, Thu, Fri, Sat, Sun } Day;
-const char* const Daystr[7] = { "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun" };
-typedef struct _Resultv {
-	int diff;
-	int month;
-	Day day;
-} Resultv;
-Resultv parser(const char* str) {
-	Resultv ret = { 0 };
-	char temp[6];
-	sscanf(str, "%*d/%d/%*d %s (%d)", &ret.month, temp, &ret.diff);
-	if (!strcmp(temp, Daystr[0])) {
-		ret.day = Mon;
-	}
-	else if (!strcmp(temp, Daystr[1])) {
-		ret.day = Tue;
-	}
-	else if (!strcmp(temp, Daystr[2])) {
-		ret.day = Wed;
-	}
-	else if (!strcmp(temp, Daystr[3])) {
-		ret.day = Thu;
-	}
-	else if (!strcmp(temp, Daystr[4])) {
-		ret.day = Fri;
-	}
-	else if (!strcmp(temp, Daystr[5])) {
-		ret.day = Sat;
-	}
-	else if (!strcmp(temp, Daystr[6])) {
-		ret.day = Sun;
-	}
-	else {
-		printf("Wrong input file.\n");
-		exit(1);
-	}
-	return ret;
+#define _INFINITE (1000000000)
+typedef struct {
+	int id;
+	int weight;
+} Edge;
+typedef struct {
+	Edge item;
+	int priority;
+} HNode;
+typedef struct {
+	HNode* nodes;
+	int capacity;
+	int size;
+} ArrayHeap;
+typedef struct _GNode {
+	Edge edge;
+	struct _GNode* next;
+} GNode;
+typedef struct {
+	int size;
+	GNode** tails;
+} Graph;
+ArrayHeap* AH_newHeap(const int max) {
+	ArrayHeap* pheap;
+	if ((pheap = malloc(sizeof(ArrayHeap))) == NULL) exit(1);
+	if ((pheap->nodes = calloc(max + 1, sizeof(HNode))) == NULL) exit(1);
+	pheap->capacity = max + 1;
+	pheap->size = 0;
+	return pheap;
 }
-int main(int argc, char* argv[]) {
-	int total;
-	char buffer[128];
-	Resultv result[1000] = { 0 };
-	FILE* file = NULL;
-	if ((file = fopen("date.txt", "r")) == NULL) {
-		printf("File open error.\n");
-		exit(1);
+void AH_deleteHeap(ArrayHeap* pheap) {
+	if (pheap == NULL || pheap->nodes == NULL) exit(1);
+	free(pheap->nodes);
+	free(pheap);
+}
+int AH_isEmpty(const ArrayHeap* pheap) {
+	return pheap->size == 0;
+}
+void AH_push(ArrayHeap* pheap, const Edge item, const int priority) {
+	HNode newNode;
+	int index = pheap->size + 1;
+	while (index > 1) {
+		int parentIndex = index / 2;
+		if (priority < pheap->nodes[parentIndex].priority) {
+			pheap->nodes[index] = pheap->nodes[parentIndex];
+			index = parentIndex;
+		}
+		else break;
 	}
-	for (total = 0; fgets(buffer, sizeof(buffer), file); total++) {
-		result[total] = parser(buffer);
+	newNode.item = item;
+	newNode.priority = priority;
+	pheap->nodes[index] = newNode;
+	pheap->size++;
+}
+Edge AH_pop(ArrayHeap* pheap) {
+	const int size = pheap->size;
+	const Edge topitem = pheap->nodes[1].item;
+	const HNode last = pheap->nodes[size];
+	int left, pickedChild, parentIndex = 1;
+	while ((left = parentIndex * 2) <= size) {
+		if (left == size) pickedChild = left;
+		else if (pheap->nodes[left].priority < pheap->nodes[left + 1].priority) pickedChild = left;
+		else pickedChild = left + 1;
+
+		if (last.priority > pheap->nodes[pickedChild].priority) {
+			pheap->nodes[parentIndex] = pheap->nodes[pickedChild];
+			parentIndex = pickedChild;
+		}
+		else break;
 	}
-	for (int i = 0; i < total; i++) {
-		printf("%d, %s, %d\n", result[i].month, Daystr[result[i].day], result[i].diff);
+	pheap->nodes[parentIndex] = last;
+	pheap->size--;
+	return topitem;
+}
+Graph* GR_newGraph(const int size) {
+	Graph* pgraph;
+	if ((pgraph = malloc(sizeof(Graph))) == NULL) exit(1);
+	if ((pgraph->tails = calloc(size, sizeof(GNode*))) == NULL) exit(1);
+	pgraph->size = size;
+	for (int i = 0; i < size; i++) {
+		pgraph->tails[i] = malloc(sizeof(GNode));
+		pgraph->tails[i]->next = pgraph->tails[i];
 	}
-	//전체 평균, 표준편차
-	//요일별 평균, 표준편차
-	//
-	//
+	return pgraph;
+}
+void GR_deleteGraph(Graph* pgraph) {
+	const int size = pgraph->size;
+	for (int i = 0; i < size; i++) {
+		GNode* _tail = pgraph->tails[i];
+		GNode* cur = _tail;
+		do {
+			GNode* temp = cur;
+			cur = cur->next;
+			free(temp);
+		} while (cur != _tail);
+	}
+	free(pgraph->tails);
+	free(pgraph);
+}
+void GR_addEdge(const Graph* pgraph, const int index_from, const Edge _edge) {
+	GNode* newNode;
+	newNode = malloc(sizeof(GNode));
+	newNode->edge = _edge;
+	newNode->next = pgraph->tails[index_from]->next;
+	pgraph->tails[index_from]->next = newNode;
+	pgraph->tails[index_from] = newNode;
+}
+int* solveDijkstra(const Graph* graph, const int vtxSize, const int edgeSize, const int vtxStart) {
+	int* distances = calloc(vtxSize + 1, sizeof(int));
+	ArrayHeap* heap = AH_newHeap(edgeSize);
+	for (int i = 1; i <= vtxSize; i++) {
+		distances[i] = _INFINITE;
+	}
+	distances[vtxStart] = 0;
+	AH_push(heap, (Edge) { vtxStart, 0 }, 0);
+	while (!AH_isEmpty(heap)) {
+		Edge edge = AH_pop(heap);
+		if (edge.weight > distances[edge.id]) continue;
+		GNode* gn_head = graph->tails[edge.id]->next;
+		GNode* gn_cur = gn_head->next;
+		while (gn_cur != gn_head) {
+			Edge destEdge = gn_cur->edge;
+			destEdge.weight += edge.weight;
+			if (destEdge.weight < distances[destEdge.id]) {
+				AH_push(heap, destEdge, destEdge.weight);
+				distances[destEdge.id] = destEdge.weight;
+			}
+			gn_cur = gn_cur->next;
+		}
+	}
+	AH_deleteHeap(heap);
+	return distances;
+}
+int main() {
+	{
+		freopen("i.txt", "r", stdin);
+	}
+	int** distances;
+	int V, E, start;
+	Graph* graph;
+	scanf("%d%d", &V, &E);
+	distances = calloc(V + 1, sizeof(int*));
+	graph = GR_newGraph(V + 1);
+	for (int i = 0; i < E; i++) {
+		int from;
+		Edge edge;
+		scanf("%d%d%d", &from, &edge.id, &edge.weight);
+		GR_addEdge(graph, from, edge);
+	}
+	for (int i = 1; i <= V; i++) {
+		distances[i] = solveDijkstra(graph, V, E, i);
+	}
+	for (int i = 1; i <= V; i++) {
+		for (int j = 1; j <= V; j++) {
+			if (distances[i][j] == _INFINITE) printf("0 ");
+			else printf("%d ", distances[i][j]);
+		}
+		printf("\n");
+	}
+	free(distances);
+	GR_deleteGraph(graph);
 }
