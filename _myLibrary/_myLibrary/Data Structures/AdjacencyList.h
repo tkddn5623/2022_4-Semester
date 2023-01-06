@@ -2,13 +2,17 @@
 #define GRAPH_H
 typedef struct _GNode {
 	int id;
+	int weight;
 	struct _GNode* next;
 } GNode;
 typedef struct {
-	int size;
+	int vtxsize;
+	int edgesize;
+	int edgecount;
 	GNode** tails;
+	GNode* _edges;
 } Graph;
-Graph* GR_newGraph(const int size);
-void GR_deleteGraph(Graph* pgraph);
-void GR_addEdge(const Graph* pgraph, const int index1, const int index2);
+Graph* GR_newGraph(const int vtxsize, const int edgesize);
+void GR_deleteGraph(Graph * pgraph);
+void GR_addEdge(Graph * pgraph, const int from, const int to, const int weight);
 #endif
