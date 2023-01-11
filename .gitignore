@@ -51,6 +51,7 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
+
 # .vs and .vscode
 .vs/
 .vscode/
@@ -61,4 +62,5 @@ node_modules/
 # github.io
 tkddn5623.github.io/
 
-# Other repos
+# exercise directory
+_exercise/
