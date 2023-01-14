@@ -1,2 +1,74 @@
 ﻿  exercise.c
-  _exercise.vcxproj -> D:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\x64\Debug\_exercise.exe
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(8,2): error C4235: nonstandard extension used: '__int128' keyword not supported on this architecture
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(8,11): error C2061: syntax error: identifier 'numer'
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(9,2): error C4235: nonstandard extension used: '__int128' keyword not supported on this architecture
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(10,1): error C2059: syntax error: '}'
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(11,1): error C4235: nonstandard extension used: '__int128' keyword not supported on this architecture
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(11,14): error C4235: nonstandard extension used: '__int128' keyword not supported on this architecture
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(11,26): error C4235: nonstandard extension used: '__int128' keyword not supported on this architecture
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(12,2): error C4235: nonstandard extension used: '__int128' keyword not supported on this architecture
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(12,12): error C2065: 'C': undeclared identifier
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(15,20): error C2065: 'C': undeclared identifier
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(15,41): error C2065: 'C': undeclared identifier
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(18,15): error C4235: nonstandard extension used: '__int128' keyword not supported on this architecture
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(45,26): error C2146: syntax error: missing ')' before identifier 'mat'
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(45,26): error C2061: syntax error: identifier 'mat'
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(45,26): error C2059: syntax error: ';'
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(45,29): error C2059: syntax error: '['
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(57,12): error C2061: syntax error: identifier 'fracRecip'
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(57,12): error C2059: syntax error: ';'
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(57,33): error C2146: syntax error: missing ')' before identifier 'fr'
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(57,33): error C2061: syntax error: identifier 'fr'
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(57,35): error C2059: syntax error: ')'
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(57,37): error C2449: found '{' at file scope (missing function header?)
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(72,1): error C2059: syntax error: '}'
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(82,8): error C4235: nonstandard extension used: '__int128' keyword not supported on this architecture
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(87,28): error C2146: syntax error: missing ')' before identifier 'dest'
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(87,28): error C2061: syntax error: identifier 'dest'
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(87,28): error C2059: syntax error: ';'
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(87,32): error C2059: syntax error: '['
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(87,65): error C2059: syntax error: ')'
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(95,28): error C2146: syntax error: missing ')' before identifier 'dest'
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(95,28): error C2061: syntax error: identifier 'dest'
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(95,28): error C2059: syntax error: ';'
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(95,32): error C2059: syntax error: '['
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(95,83): error C2059: syntax error: ')'
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(109,26): error C2146: syntax error: missing ')' before identifier 'mat'
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(109,26): error C2061: syntax error: identifier 'mat'
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(109,26): error C2059: syntax error: ';'
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(109,29): error C2059: syntax error: '['
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(157,13): error C2065: 'fraction_t': undeclared identifier
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(157,13): error C2146: syntax error: missing ';' before identifier 'mat'
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(157,16): error C2065: 'mat': undeclared identifier
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(157,23): error C2109: subscript requires array or pointer type
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(157,35): error C2059: syntax error: '{'
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(166,52): error C2065: 'mat': undeclared identifier
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(166,54): error C2109: subscript requires array or pointer type
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(166,70): error C2065: 'mat': undeclared identifier
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(166,72): error C2109: subscript requires array or pointer type
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(166,35): warning C4473: 'sscanf' : not enough arguments passed for format string
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(166,35): message : placeholders and their parameters expect 2 variadic arguments, but 0 were provided
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(166,35): message : the missing variadic argument 1 is required by format string '%lld'
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(167,33): error C2065: 'mat': undeclared identifier
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(167,35): error C2109: subscript requires array or pointer type
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(167,21): warning C4473: 'sscanf' : not enough arguments passed for format string
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(167,21): message : placeholders and their parameters expect 1 variadic arguments, but 0 were provided
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(167,21): message : the missing variadic argument 1 is required by format string '%lld'
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(167,51): error C2065: 'mat': undeclared identifier
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(167,53): error C2109: subscript requires array or pointer type
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(170,53): error C2065: 'mat': undeclared identifier
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(170,55): error C2109: subscript requires array or pointer type
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(170,71): error C2065: 'mat': undeclared identifier
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(170,73): error C2109: subscript requires array or pointer type
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(170,36): warning C4473: 'sscanf' : not enough arguments passed for format string
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(170,36): message : placeholders and their parameters expect 2 variadic arguments, but 0 were provided
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(170,36): message : the missing variadic argument 1 is required by format string '%lld'
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(171,34): error C2065: 'mat': undeclared identifier
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(171,36): error C2109: subscript requires array or pointer type
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(171,22): warning C4473: 'sscanf' : not enough arguments passed for format string
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(171,22): message : placeholders and their parameters expect 1 variadic arguments, but 0 were provided
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(171,22): message : the missing variadic argument 1 is required by format string '%lld'
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(171,52): error C2065: 'mat': undeclared identifier
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(171,54): error C2109: subscript requires array or pointer type
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(175,10): warning C4013: 'makeRREF' undefined; assuming extern returning int
+E:\!!Documents 2021\!!Programming projects\2022_4-Semester\_exercise\_exercise\exercise.c(175,14): error C2065: 'mat': undeclared identifier
