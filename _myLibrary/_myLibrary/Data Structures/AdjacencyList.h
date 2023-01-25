@@ -13,6 +13,6 @@ typedef struct {
 	GNode* _edges;
 } Graph;
 Graph* GR_newGraph(const int vtxsize, const int edgesize);
-void GR_deleteGraph(Graph * pgraph);
-void GR_addEdge(Graph * pgraph, const int from, const int to, const int weight);
+void GR_deleteGraph(Graph * graph);
+void GR_addEdge(Graph * graph, const int from, const int to, const int weight);
 #endif

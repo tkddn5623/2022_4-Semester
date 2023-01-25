@@ -15,36 +15,36 @@ typedef struct {
 } Graph;
 */
 Graph* GR_newGraph(const int vtxsize, const int edgesize) {
-	Graph* pgraph;
-	if ((pgraph = malloc(sizeof(Graph))) == NULL) exit(1);
-	if ((pgraph->tails = calloc(vtxsize, sizeof(GNode*))) == NULL) exit(1);
-	if ((pgraph->_edges = calloc(edgesize + vtxsize, sizeof(GNode))) == NULL) exit(1);
-	pgraph->vtxsize = vtxsize;
-	pgraph->edgesize = edgesize + vtxsize;
-	pgraph->edgecount = vtxsize;
+	Graph* graph;
+	if ((graph = malloc(sizeof(Graph))) == NULL) exit(1);
+	if ((graph->tails = calloc(vtxsize, sizeof(GNode*))) == NULL) exit(1);
+	if ((graph->_edges = calloc(edgesize + vtxsize, sizeof(GNode))) == NULL) exit(1);
+	graph->vtxsize = vtxsize;
+	graph->edgesize = edgesize + vtxsize;
+	graph->edgecount = vtxsize;
 	for (int i = 0; i < vtxsize; i++) {
-		pgraph->tails[i] = &pgraph->_edges[i];
-		pgraph->tails[i]->next = pgraph->tails[i];
+		graph->tails[i] = &graph->_edges[i];
+		graph->tails[i]->next = graph->tails[i];
 	}
-	return pgraph;
+	return graph;
 }
-void GR_deleteGraph(Graph* pgraph) {
-	free(pgraph->_edges);
-	free(pgraph->tails);
-	free(pgraph);
+void GR_deleteGraph(Graph* graph) {
+	free(graph->_edges);
+	free(graph->tails);
+	free(graph);
 }
-void GR_addEdge(Graph* pgraph, const int from, const int to, const int weight) {
-	pgraph->_edges[pgraph->edgecount].id = to;
-	pgraph->_edges[pgraph->edgecount].weight = weight;
-	pgraph->_edges[pgraph->edgecount].next = pgraph->tails[from]->next;
-	pgraph->tails[from]->next = &pgraph->_edges[pgraph->edgecount];
-	pgraph->tails[from] = &pgraph->_edges[pgraph->edgecount++];
+void GR_addEdge(Graph* graph, const int from, const int to, const int weight) {
+	graph->_edges[graph->edgecount].id = to;
+	graph->_edges[graph->edgecount].weight = weight;
+	graph->_edges[graph->edgecount].next = graph->tails[from]->next;
+	graph->tails[from]->next = &graph->_edges[graph->edgecount];
+	graph->tails[from] = &graph->_edges[graph->edgecount++];
 }
 /*int GR_BFS(Graph* pgraph, const int startIdx) {
-	const int size = pgraph->size;
+	const int vtxsize = pgraph->vtxsize;
 	int count = 0;
-	int* visited = calloc(size, sizeof(int));
-	ArrayQueue* queue = AQ_newQueue(size); 
+	int* visited = calloc(vtxsize, sizeof(int));
+	ArrayQueue* queue = AQ_newQueue(vtxsize); 
 	if (!visited[startIdx]) {
 		AQ_push(queue, startIdx);
 		visited[startIdx] = 1;
