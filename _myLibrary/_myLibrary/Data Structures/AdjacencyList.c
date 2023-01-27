@@ -40,36 +40,41 @@ void GR_addEdge(Graph* graph, const int from, const int to, const int weight) {
 	graph->tails[from]->next = &graph->_edges[graph->edgecount];
 	graph->tails[from] = &graph->_edges[graph->edgecount++];
 }
-/*int GR_BFS(Graph* pgraph, const int startIdx) {
-	const int vtxsize = pgraph->vtxsize;
-	int count = 0;
-	int* visited = calloc(vtxsize, sizeof(int));
-	ArrayQueue* queue = AQ_newQueue(vtxsize); 
-	if (!visited[startIdx]) {
-		AQ_push(queue, startIdx);
-		visited[startIdx] = 1;
-		pgraph->tails[startIdx]->next->id = startIdx; //If it is tree, this stores the 'parent' index.
-	}
-	while (!AQ_isEmpty(queue)) {
-		int vtx = AQ_pop(queue);
-		GNode* _head = pgraph->tails[vtx]->next;
-		GNode* cur = _head->next;
-		while (cur != _head) {
-			if (!visited[cur->id]) {
-				AQ_push(queue, cur->id);
-				visited[cur->id] = 1;
-				pgraph->tails[cur->id]->next->id = vtx; //If it is tree, this stores the 'parent' index.
-				count++;
+/*
+int _travelingSalesman_impl(Graph* graph, int memo[][1 << MAXVTX], const int vtx, int visited_bit) {
+	int dist_min;
+	const int vtxsize = graph->vtxsize;
+	GNode* const head = graph->tails[vtx]->next;
+	//if (memo[vtx][visited_bit] != -1) return memo[vtx][visited_bit];
+	if (visited_bit == (1 << vtxsize) - 1) {
+		for (GNode* cur = head->next; cur != head; cur = cur->next) {
+			if (cur->id == HOME) {
+				return cur->weight;
 			}
-			cur = cur->next;
 		}
+		return INF;
 	}
-	free(visited);
-	AQ_deleteQueue(queue);
-	return count;
-}*/
+	dist_min = INF;
+	for (GNode* cur = head->next; cur != head; cur = cur->next) {
+		if (visited_bit & (1 << cur->id)) continue;
+		const int mem = memo[cur->id][visited_bit | 1 << cur->id];
+		int dist = cur->weight;
+		if (mem == -1) dist += _travelingSalesman_impl(graph, memo, cur->id, (visited_bit | 1 << cur->id));
+		else dist += mem;
+		dist_min = dist < dist_min ? dist : dist_min;
+	}
+	memo[vtx][visited_bit] = dist_min;
+	return dist_min;
+}
+int travelingSalesman(Graph* graph) {
+	static int memo[MAXVTX][1 << MAXVTX];
+	memset(memo, -1, sizeof(memo));
+	return _travelingSalesman_impl(graph, memo, HOME, 1 << HOME);
+}
+*/
 
 /*
 * 2022.9.21 Wed
 * 2023.1.6  Fri, improved speed.
+* 2023.1.27 Fri, example changed to TSP.
 */

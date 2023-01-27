@@ -1,5 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#define INF (1 << 24) //1.67e7
+#define MAXVTX (16)
+#define HOME (0)
 typedef struct _GNode {
 	int id;
 	int weight;
@@ -38,11 +42,37 @@ void GR_addEdge(Graph* graph, const int from, const int to, const int weight) {
 	graph->tails[from]->next = &graph->_edges[graph->edgecount];
 	graph->tails[from] = &graph->_edges[graph->edgecount++];
 }
-int travelingSalesman(Graph* graph) {
+int _travelingSalesman_impl(Graph* graph, int memo[][1 << MAXVTX], const int vtx, int visited_bit) {
+	int dist_min;
 	const int vtxsize = graph->vtxsize;
+	GNode* const head = graph->tails[vtx]->next;
+	//if (memo[vtx][visited_bit] != -1) return memo[vtx][visited_bit];
+	if (visited_bit == (1 << vtxsize) - 1) {
+		for (GNode* cur = head->next; cur != head; cur = cur->next) {
+			if (cur->id == HOME) {
+				return cur->weight;
+			}
+		}
+		return INF;
+	}
+	dist_min = INF;
+	for (GNode* cur = head->next; cur != head; cur = cur->next) {
+		if (visited_bit & (1 << cur->id)) continue;
+		const int mem = memo[cur->id][visited_bit | 1 << cur->id];
+		int dist = cur->weight;
+		if (mem == -1) dist += _travelingSalesman_impl(graph, memo, cur->id, (visited_bit | 1 << cur->id));
+		else dist += mem;
+		dist_min = dist < dist_min ? dist : dist_min;
+	}
+	memo[vtx][visited_bit] = dist_min;
+	return dist_min;
+}
+int travelingSalesman(Graph* graph) {
+	static int memo[MAXVTX][1 << MAXVTX];
+	memset(memo, -1, sizeof(memo));
+	return _travelingSalesman_impl(graph, memo, HOME, 1 << HOME);
 }
 int main() {
-	{freopen("i.txt", "r", stdin); }
 	Graph* graph;
 	int V;
 	scanf("%d", &V);
