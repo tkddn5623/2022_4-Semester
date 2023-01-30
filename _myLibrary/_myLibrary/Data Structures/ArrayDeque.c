@@ -19,7 +19,6 @@ ArrayDeque* AD_newDeque(const int max) {
 	return pdeque;
 }
 void AD_deleteDeque(ArrayDeque* pdeque) {
-	if (pdeque == NULL || pdeque->items == NULL) exit(1);
 	free(pdeque->items);
 	free(pdeque);
 }

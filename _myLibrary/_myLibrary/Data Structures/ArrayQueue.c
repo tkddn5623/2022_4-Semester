@@ -19,7 +19,6 @@ ArrayQueue* AQ_newQueue(const int max) {
 	return pqueue;
 }
 void AQ_deleteQueue(ArrayQueue* pqueue) {
-	if (pqueue == NULL || pqueue->items == NULL) exit(1);
 	free(pqueue->items);
 	free(pqueue);
 }

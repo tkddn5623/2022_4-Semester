@@ -21,7 +21,6 @@ ArrayHeap* AH_newHeap(const int max) {
 	return pheap;
 }
 void AH_deleteHeap(ArrayHeap* pheap) {
-	if (pheap == NULL || pheap->nodes == NULL) exit(1);
 	free(pheap->nodes);
 	free(pheap);
 }

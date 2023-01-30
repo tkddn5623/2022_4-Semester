@@ -17,7 +17,6 @@ ArrayStack* AS_newStack(const int max) {
 	return pstack;
 }
 void AS_deleteStack(ArrayStack* pstack) {
-	if (pstack == NULL || pstack->items == NULL) exit(1);
 	free(pstack->items);
 	free(pstack);
 }

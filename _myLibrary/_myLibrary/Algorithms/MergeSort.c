@@ -1,6 +1,5 @@
 #include <stdlib.h>
 #include "MergeSort.h";
-
 void _MergeSort_impl(Element* const list, Element* const sorted, const int left, const int right) {
 	if (left >= right) return;
 	const int mid = left + (right - left) / 2;
@@ -12,15 +11,9 @@ void _MergeSort_impl(Element* const list, Element* const sorted, const int left,
 		if (list[first] <= list[second]) sorted[idx++] = list[first++];
 		else sorted[idx++] = list[second++];
 	}
-	while (first <= mid) {
-		sorted[idx++] = list[first++];
-	}
-	while (second <= right) {
-		sorted[idx++] = list[second++];
-	}
-	for (int i = left; i <= right; i++) {
-		list[i] = sorted[i];
-	}
+	while (first <= mid)    sorted[idx++] = list[first++];
+	while (second <= right) sorted[idx++] = list[second++];
+	for (int i = left; i <= right; i++) list[i] = sorted[i];
 }
 Element* MergeSort(Element* list, const int size) {
 	Element* sorted = calloc(size, sizeof(Element));
@@ -33,4 +26,5 @@ Element* MergeSort(Element* list, const int size) {
 
 /*
 * 2022.10.9 Sun
+* 2023.1.30 Mon : Improved read
 */
