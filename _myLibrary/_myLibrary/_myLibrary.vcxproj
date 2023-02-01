@@ -114,8 +114,9 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <DisableSpecificWarnings>6031</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -148,7 +149,7 @@
     <ClInclude Include="Algorithms\LinearSieve.h" />
     <ClInclude Include="Data Structures\LinkedList.h" />
     <ClInclude Include="Data Structures\UnionFind.h" />
-    <ClInclude Include="Data Structures\Vector.h" />
+    <ClInclude Include="Data Structures\Hashtable.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Algorithms\MergeSort.c" />
@@ -160,7 +161,7 @@
     <ClCompile Include="Algorithms\LinearSieve.c" />
     <ClCompile Include="Data Structures\LinkedList.c" />
     <ClCompile Include="Data Structures\UnionFind.c" />
-    <ClCompile Include="Data Structures\Vector.c" />
+    <ClCompile Include="Data Structures\Hashtable.c" />
     <ClCompile Include="_Main.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

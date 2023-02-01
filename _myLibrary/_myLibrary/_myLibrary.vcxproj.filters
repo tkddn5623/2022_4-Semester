@@ -45,10 +45,10 @@
     <ClInclude Include="Data Structures\AdjacencyList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Data Structures\Vector.h">
+    <ClInclude Include="Algorithms\MergeSort.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Algorithms\MergeSort.h">
+    <ClInclude Include="Data Structures\Hashtable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -80,11 +80,11 @@
     <ClCompile Include="Data Structures\AdjacencyList.c">
       <Filter>Source Files\Data Structures</Filter>
     </ClCompile>
-    <ClCompile Include="Data Structures\Vector.c">
-      <Filter>Source Files\Data Structures</Filter>
-    </ClCompile>
     <ClCompile Include="Algorithms\MergeSort.c">
       <Filter>Source Files\Algorithms</Filter>
+    </ClCompile>
+    <ClCompile Include="Data Structures\Hashtable.c">
+      <Filter>Source Files\Data Structures</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
