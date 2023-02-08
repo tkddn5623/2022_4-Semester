@@ -61,18 +61,17 @@ int solve3033(const char text[], const int N) {
 	int answer = 0;
 	while (L <= R) {
 		length = L + (R - L) / 2;
-		int power = 1, hash = 0;
+		unsigned int power = 1, hash = 0;
 
 		for (int i = 0; i < length; i++) {
 			hash = (hash * POLYCOEF + text[i]) % HASHSIZE;
 			power = (power * POLYCOEF) % HASHSIZE;
 		}
+		power = HASHSIZE - power; //This code protects against escape from modular field.
 		HT_push(table, hash, &text[0]);
 
 		for (int i = 1; i <= N - length; i++) {
-			hash = (hash * POLYCOEF + text[i + length - 1] - text[i - 1] * power) % HASHSIZE;
-			if (hash < 0) hash = HASHSIZE + hash;
-
+			hash = (hash * POLYCOEF + text[i + length - 1] + text[i - 1] * power) % HASHSIZE;
 			if (!HT_search(table, hash, &text[i], length)) {
 				HT_push(table, hash, &text[i]);
 			}

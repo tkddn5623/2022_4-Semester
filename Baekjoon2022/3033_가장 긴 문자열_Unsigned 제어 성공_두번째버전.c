@@ -3,7 +3,7 @@
 #include <string.h>
 #define MAXLEN (200000)
 #define POLYCOEF (5381)
-#define HASHSIZE (190027)
+#define HASHSIZE (1 << 17)
 typedef const char* Element;
 typedef struct _HNode {
 	Element item;
@@ -61,18 +61,18 @@ int solve3033(const char text[], const int N) {
 	int answer = 0;
 	while (L <= R) {
 		length = L + (R - L) / 2;
-		int power = 1, hash = 0;
+		unsigned int power = 1, hash = 0;
 
 		for (int i = 0; i < length; i++) {
-			hash = (hash * POLYCOEF + text[i]) % HASHSIZE;
-			power = (power * POLYCOEF) % HASHSIZE;
+			hash = hash * POLYCOEF + text[i];
+			power = power * POLYCOEF;
 		}
+        hash %= HASHSIZE;
+        power %= HASHSIZE;
 		HT_push(table, hash, &text[0]);
 
 		for (int i = 1; i <= N - length; i++) {
 			hash = (hash * POLYCOEF + text[i + length - 1] - text[i - 1] * power) % HASHSIZE;
-			if (hash < 0) hash = HASHSIZE + hash;
-
 			if (!HT_search(table, hash, &text[i], length)) {
 				HT_push(table, hash, &text[i]);
 			}
