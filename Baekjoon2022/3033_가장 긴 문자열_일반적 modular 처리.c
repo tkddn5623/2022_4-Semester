@@ -49,7 +49,7 @@ void HT_push(Hashtable* table, const int index, Element item) {
 	table->tails[index] = &table->_edges[table->nodecount++];
 }
 int HT_search(Hashtable* table, const int index, Element item, const int itemlen) {
-	HNode* const head = table->tails[index]->next;
+	HNode* const head = &table->_edges[index];
 	for (HNode* cur = head->next; cur != head; cur = cur->next) {
 		if (!strncmp(cur->item, item, itemlen)) return 1;
 	}

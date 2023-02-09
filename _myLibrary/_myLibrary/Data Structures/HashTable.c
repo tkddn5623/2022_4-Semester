@@ -41,7 +41,7 @@ void HT_push(Hashtable* table, const int index, const Element item) {
 	table->tails[index] = &table->_edges[table->nodecount++];
 }
 int HT_search(Hashtable* table, const int index, const Element item) {
-	HNode* const head = table->tails[index]->next;
+	HNode* const head = &table->_edges[index];
 	for (HNode* cur = head->next; cur != head; cur = cur->next) {
 		if (cur->item == item) return 1;
 	}
@@ -60,4 +60,9 @@ int hashing(const char str[]) {
 /*
 * 2023.2.1 Hashtable
 * 2023.2.1 And Simple STATIC hashing function.
+*/
+
+/*
+HNode* const head = table->tails[index]->next; //Slower.
+HNode* const head = &table->_edges[index];     //Faster.
 */

@@ -44,7 +44,7 @@ void GR_addEdge(Graph* graph, const int from, const int to, const int weight) {
 int _travelingSalesman_impl(Graph* graph, int memo[][1 << MAXVTX], const int vtx, int visited_bit) {
 	int dist_min;
 	const int vtxsize = graph->vtxsize;
-	GNode* const head = graph->tails[vtx]->next;
+	GNode* const head = &graph->_edges[vtx];
 	//if (memo[vtx][visited_bit] != -1) return memo[vtx][visited_bit];
 	if (visited_bit == (1 << vtxsize) - 1) {
 		for (GNode* cur = head->next; cur != head; cur = cur->next) {
@@ -77,4 +77,9 @@ int travelingSalesman(Graph* graph) {
 * 2022.9.21 Wed
 * 2023.1.6  Fri, improved speed.
 * 2023.1.27 Fri, example changed to TSP.
+*/
+
+/*
+GNode* const head = graph->tails[vtx]->next; //Slower
+GNode* const head = &graph->_edges[vtx];     //Faster (in TSP, difference is small)
 */
