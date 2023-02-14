@@ -12,23 +12,23 @@ int* solve1786_KMP(const char text[], const char pattern[]) {
 	if (len_text < len_ptrn) return answerlist;
 
 	// Compute-Prefix-Function
-	prefix[0] = 0;
+	prefix[1] = 0;
 	for (int i = 1, k = 0; i < len_ptrn; i++) {
 		while (k > 0 && pattern[k] != pattern[i])
-			k = prefix[k - 1];
+			k = prefix[k];
 		if (pattern[k] == pattern[i])
 			k = k + 1;
-		prefix[i] = k;
+		prefix[i + 1] = k;
 	}
 
 	// KMP-Matcher
 	for (int i = 0, q = 0; i < len_text; i++) {
 		while (q > 0 && text[i] != pattern[q])
-			q = prefix[q - 1];
+			q = prefix[q];
 		if (text[i] == pattern[q])
 			q = q + 1;
 		if (q == len_ptrn) {
-			q = prefix[q - 1];
+			q = prefix[q];
 			answerlist[++answersize] = i - len_ptrn + 2;
 			//answerlist[++answersize] = i - len_ptrn + 1;
 		}
