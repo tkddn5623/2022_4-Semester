@@ -54,6 +54,9 @@
     <ClInclude Include="Algorithms\KMP_Matcher.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Algorithms\BinarySearch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="_Main.c">
@@ -90,6 +93,9 @@
       <Filter>Source Files\Data Structures</Filter>
     </ClCompile>
     <ClCompile Include="Algorithms\KMP_Matcher.c">
+      <Filter>Source Files\Algorithms</Filter>
+    </ClCompile>
+    <ClCompile Include="Algorithms\BinarySearch.c">
       <Filter>Source Files\Algorithms</Filter>
     </ClCompile>
   </ItemGroup>

@@ -140,6 +140,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Algorithms\BinarySearch.h" />
     <ClInclude Include="Algorithms\KMP_Matcher.h" />
     <ClInclude Include="Algorithms\MergeSort.h" />
     <ClInclude Include="Data Structures\AdjacencyList.h" />
@@ -153,6 +154,7 @@
     <ClInclude Include="Data Structures\Hashtable.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Algorithms\BinarySearch.c" />
     <ClCompile Include="Algorithms\KMP_Matcher.c" />
     <ClCompile Include="Algorithms\MergeSort.c" />
     <ClCompile Include="Data Structures\AdjacencyList.c" />
