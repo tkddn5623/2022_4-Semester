@@ -1,4 +1,3 @@
-#include <stdlib.h>
 int binary_lower(const int arr[], int size, const int key) {
 	int pos = -1, left = 0, mid;
 	size = size - 1;
