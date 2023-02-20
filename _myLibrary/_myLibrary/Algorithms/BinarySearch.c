@@ -18,4 +18,6 @@ int binary_lower(const int arr[], int size, const int key) {
 /*
 * 2023.2.20 Mon.
 * binary_upper is skipped. just change one line then it works.
+* binary_lower_greater can be implemented by moving pos assignment and changing of assignment in line 9
+* binary_lower_greater_equal can be implemented by same ways.
 */
