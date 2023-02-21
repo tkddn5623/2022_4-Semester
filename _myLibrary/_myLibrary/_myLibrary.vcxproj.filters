@@ -57,6 +57,9 @@
     <ClInclude Include="Algorithms\BinarySearch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Data Structures\SegmentTree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="_Main.c">
@@ -97,6 +100,9 @@
     </ClCompile>
     <ClCompile Include="Algorithms\BinarySearch.c">
       <Filter>Source Files\Algorithms</Filter>
+    </ClCompile>
+    <ClCompile Include="Data Structures\SegmentTree.c">
+      <Filter>Source Files\Data Structures</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
