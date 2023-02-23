@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include "MergeSort.h";
-void _MergeSort_impl(Element* const list, Element* const sorted, const int left, const int right) {
+//typedef int Element;
+void _MergeSort_impl(Element* list, Element* sorted, const int left, const int right) {
 	if (left >= right) return;
 	const int mid = left + (right - left) / 2;
 	_MergeSort_impl(list, sorted, left, mid);
